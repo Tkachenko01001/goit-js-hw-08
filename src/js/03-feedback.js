@@ -5,12 +5,10 @@ const textareaEl = document.querySelector('.feedback-form textarea');
 const inputEl = document.querySelector('.feedback-form input')
 
 const formData = {};
-let savedData;
-let parseData;
+const savedData = localStorage.getItem('feedback-form-state');
+const parseData = JSON.parse(savedData);
 
 const onDataStorage = (e) => {
-    savedData = localStorage.getItem('feedback-form-state');
-    parseData = JSON.parse(savedData);
     formData[e.target.name] = e.target.value;
     localStorage.setItem('feedback-form-state', JSON.stringify(formData))
 };
